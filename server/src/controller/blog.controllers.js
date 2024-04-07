@@ -62,7 +62,7 @@ const createBlog=asyncHandler(async (req,res)=>{
 // ++++++++++++++++++++++++++ getAllBlogs ++++++++++++++++++++++++++
 
 const getAllBlogs=asyncHandler(async (req,res)=>{
-    let query=await Blog.find().populate('author comments likes');
+    let query=await Blog.find().populate('author');
     
 
     query=await searchUtils("title",query,req)
@@ -97,7 +97,7 @@ const getBlogsOfUser=asyncHandler(async (req,res)=>{
 
     const blogs=await Blog.find({
         author:userId
-    }).populate('author comments likes')
+    }).populate('author')
 
     if (Array.isArray(blogs) && blogs.length > 0 && typeof blogs[0] === 'object') {
         blogs.sort((a, b) => b.createdAt - a.createdAt);
@@ -125,7 +125,7 @@ const getBlogDetials=asyncHandler(async (req,res)=>{
     const {slug}=req.params;
     const activeUser=req.user;
 
-    const blog=await Blog.findOne({slug}).populate("author likes comments")
+    const blog=await Blog.findOne({slug}).populate("author")
 
     const blogLikeUserId=blog.likes && Array.isArray(blog.likes) ? blog.likes.map((user) => user.id) : [];
     const likeStatus=blogLikeUserId.includes(activeUser._id)
@@ -151,7 +151,7 @@ const getBlogDetials=asyncHandler(async (req,res)=>{
 const editBlogPage=asyncHandler(async (req,res)=>{
     const {slug}=req.params;
 
-    const blog=await Blog.findOne({slug}).populate("author likes")
+    const blog=await Blog.findOne({slug}).populate("author")
 
     if(!blog){
         throw new ApiError(404,"Blog Page not Found")
