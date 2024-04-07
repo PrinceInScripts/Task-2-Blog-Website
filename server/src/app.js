@@ -25,7 +25,9 @@ app.use(cookieParser())
 
 app.use(morgan('dev'))
 
+import authRoutes from "./routes/auth.routes.js"
 import userRoutes from "./routes/user.routes.js"
+app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/users",userRoutes);
 
 
