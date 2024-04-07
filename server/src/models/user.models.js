@@ -24,7 +24,8 @@ const userSchema=new Schema({
         type:String,
         required:true,
         trim:true,
-        index:true
+        index:true,
+        default:""
     },
     readList:{
           type:Schema.Types.ObjectId,
@@ -36,9 +37,11 @@ const userSchema=new Schema({
     },
     avatar:{
         type:String,   
+        default:""
     },
     coverImage:{
         type:String,
+        default:""
     },
     password:{
         type:String,
