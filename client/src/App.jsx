@@ -12,6 +12,7 @@ import ResetPssword from './pages/password/resetPassword/ResetPssword';
 import EditDetails from './pages/EditProfile/EditDetails/EditDetails';
 import ChangePassword from './pages/password/changePassword/ChangePassword';
 import AddBlog from './pages/AddBlog/AddBlog';
+import AllBlog from './pages/AllBlog.jsx/AllBlog';
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
       <Route path='/update-account' element={<EditDetails/>}/>
       <Route path='/add-blog' element={<AddBlog/>}/>
       <Route path='/change-password' element={<ChangePassword/>}/>
-
+      <Route path='/all-blog' element={<AllBlog/>}/>
       <Route path='/forgotPassword' element={<ForgotPassword/>}/>
       <Route path='/reset-password/:resetToken' element={<ResetPssword/>}/>
 
