@@ -5,6 +5,12 @@ import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Denied from './pages/NotFound/Denied';
 import Profile from './pages/Profile/Profile';
+import ForgotPassword from './pages/password/forgetPassword.jsx/ForgotPassword';
+import EditAvatar from './pages/EditProfile/EditAvatar/EditAvatar';
+import EditCoverImage from './pages/EditProfile/EditCoverImage/EditCoverImage';
+import ResetPssword from './pages/password/resetPassword/ResetPssword';
+import EditDetails from './pages/EditProfile/EditDetails/EditDetails';
+import ChangePassword from './pages/password/changePassword/ChangePassword';
 
 
 function App() {
@@ -18,6 +24,12 @@ function App() {
 
       <Route path='/denied' element={<Denied/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      
+      <Route path='/update-coverImage' element={<EditCoverImage/>}/>
+      <Route path='/update-avatar' element={<EditAvatar/>}/>
+      <Route path='/update-account' element={<EditDetails/>}/>
+
+      <Route path='/change-password' element={<ChangePassword/>}/>
 
       <Route path='/forgotPassword' element={<ForgotPassword/>}/>
       <Route path='/reset-password/:resetToken' element={<ResetPssword/>}/>

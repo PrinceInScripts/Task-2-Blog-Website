@@ -18,13 +18,14 @@ function Profile() {
   const user = useSelector((state) => state.auth.data);
   // const blogs = useSelector((state) => state.blog.userBlogs);
 
-  // async function load() {
-  //   await dispatch(getUserBlogs());
-  // }
+  async function load() {
+    await dispatch(getUserBlogs());
+  }
 
-  // useEffect(() => {
-  //   load();
-  // }, []);
+  useEffect(() => {
+    // load();
+    console.log(user);
+  }, []);
   return (
     <Layout>
       <div className="min-h-[100vh] flex flex-col items-center m-auto pb-20">

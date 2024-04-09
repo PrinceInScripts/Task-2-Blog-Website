@@ -30,7 +30,7 @@ export const createAccount = createAsyncThunk("/auth/signup", async (data) => {
 export const login = createAsyncThunk("/auth/login", async (data) => {
     try {
         const response = axiosInstance.post("auth/login", data)
-
+       
         toast.promise(response, {
             loading: 'Wait! authenticating your account',
             success: (data) => {
@@ -126,6 +126,60 @@ export const changePassword = createAsyncThunk("/auth/changePassword", async (us
     }
 })
 
+export const updateAccount = createAsyncThunk("/auth/updateAccount", async (data) => {
+    try {
+        const response = axiosInstance.patch("users/update-account", data)
+
+        toast.promise(response, {
+            loading: 'Wait! updating your account',
+            success: (data) => {
+                return data?.data?.message;
+            },
+            error: 'Faild to update your account'
+        })
+
+        return (await response).data;
+    } catch (error) {
+        toast.error(error?.response?.data?.message)
+    }
+})
+export const updateAvatar = createAsyncThunk("/auth/updateAvatar", async (avatar) => {
+    try {
+        const response = axiosInstance.patch("users/avatar", avatar)
+
+        toast.promise(response, {
+            loading: 'Wait! updating your avatar',
+            success: (data) => {
+                return data?.data?.message;
+            },
+            error: 'Faild to update your avatar'
+        })
+
+        return (await response).data;
+    } catch (error) {
+        toast.error(error?.response?.data?.message)
+    }
+})
+export const updateCoverImage = createAsyncThunk("/auth/updateCoverImage", async (coverImage) => {
+    try {
+        const response = axiosInstance.patch("users/coverImage", coverImage)
+
+        toast.promise(response, {
+            loading: 'Wait! updating your coverImage',
+            success: (data) => {
+                return data?.data?.message;
+            },
+            error: 'Faild to update your coverImage'
+        })
+
+
+        return (await response).data;
+    } catch (error) {
+        toast.error(error?.response?.data?.message)
+    }
+})
+
+
 const authSlice = createSlice({
     name: "auth",
     initialState,
@@ -161,7 +215,24 @@ const authSlice = createSlice({
                 state.role = action?.payload?.user?.role
                 state.data = action?.payload?.user
             })
-            
+            .addCase(updateAccount.fulfilled, (state, action) => {
+                const updatingDetials = action.payload?.data;
+                state.data = { ...state.data, ...updatingDetials }
+
+                localStorage.setItem("data", JSON.stringify(state.data))
+            })
+            .addCase(updateAvatar.fulfilled, (state, action) => {
+                const updatingDetials = action.payload?.data;
+                state.data = { ...state.data, ...updatingDetials }
+                localStorage.setItem("data", JSON.stringify(state.data))
+            })
+            .addCase(updateCoverImage.fulfilled, (state, action) => {
+
+                const updatingDetials = action.payload?.data;
+                state.data = { ...state.data, ...updatingDetials }
+
+                localStorage.setItem("data", JSON.stringify(state.data))
+            })
             
     }
     

@@ -46,7 +46,7 @@ function ChangePassword() {
     });
 
     if (response?.payload?.success) {
-      navigate("/users/profile");
+      navigate("/profile");
     }
   }
 
@@ -55,7 +55,7 @@ function ChangePassword() {
       <div className="flex items-center justify-center h-[90vh]">
         <form
           onSubmit={handleFormSubmit}
-          className="flex flex-col justify-center gap-6 rounded-lg p-10 text-white w-80 h-[26rem] shadow-[0_0_10px_white]"
+          className="flex flex-col justify-center gap-6 rounded-lg p-10 text-white w-96 "
         >
           <h1 className="text-center text-2xl font-bold">Change Password</h1>
 
@@ -89,6 +89,7 @@ function ChangePassword() {
               onChange={handlePasswordChange}
             />
           </div>
+          
 
           <Link to={"/profile"}>
             <p className="text-accent link text-lg font-serif cursor-pointer flex items-center justify-center w-full gap-2">
