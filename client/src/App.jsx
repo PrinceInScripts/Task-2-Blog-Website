@@ -4,6 +4,7 @@ import Layout from './Layout/Layout';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Denied from './pages/NotFound/Denied';
+import Profile from './pages/Profile/Profile';
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
       <Route path='/login' element={<Login/>}/>
 
       <Route path='/denied' element={<Denied/>}/>
+      <Route path='/profile' element={<Profile/>}/>
+
     </Routes>
   )
 }

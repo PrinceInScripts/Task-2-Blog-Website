@@ -4,7 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
 import { GoSun } from "react-icons/go";
 import { MdOutlineDarkMode } from "react-icons/md";
-// import { logout } from '../../redux/slice/authSlice';
+import { logout } from '../../redux/slice/authSlice';
+import { CgProfile } from "react-icons/cg";
+
+
 
 function Navbar() {
 
@@ -15,13 +18,13 @@ function Navbar() {
     const data=useSelector((state)=>state?.auth?.data)
 
 
-    // async function onLogout(e){
-    //    e.preventDefault()
-    //    const response=await dispatch(logout())
-    //    if(response?.payload){
-    //     navigate('/')
-    //    }
-    // }
+    async function onLogout(e){
+       e.preventDefault()
+       const response=await dispatch(logout())
+       if(response?.payload){
+        navigate('/')
+       }
+    }
     return (
         <div className="navbar p-4 bg-base-200 flex items-center justify-between">
          <div className="flex-1">
@@ -36,7 +39,7 @@ function Navbar() {
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 h-10 rounded-full">
-                <img alt="profile image" src={data?.avatar} />
+              {data?.avatar ?<img alt="profile image" src={data?.avatar} /> : <CgProfile size={40}  className=" m-auto rounded-full border border-black"/>}  
               </div>
             </div>
             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
