@@ -26,7 +26,7 @@ function Navbar() {
        }
     }
     return (
-        <div className="navbar p-4 bg-base-200 flex items-center justify-between">
+        <div className="navbar p-4 bg-base-200 px-20 flex items-center justify-between">
          <div className="flex-1">
            <Link to='/' className="btn btn-ghost lg:text-4xl text-2xl font-bold">Blog</Link>
          </div>

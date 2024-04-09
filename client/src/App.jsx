@@ -17,6 +17,8 @@ import Home from './pages/Home/Home';
 import BlogDetails from './pages/BlogDetails/BlogDetails';
 import EditBlog from './pages/EditBlog/EditBlog/EditBlog';
 import EditBlogImage from './pages/EditBlog/EditBlog/EditBlogImage';
+import NotRequireAuth from './components/Auth/NotRequireAuth';
+import RequireAuth from './components/Auth/RequireAuth';
 
 
 function App() {
@@ -25,20 +27,26 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Home/>}/>
+      
+
+      <Route element={<NotRequireAuth/>}>
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/login' element={<Login/>}/>
+      </Route>
 
-      <Route path='/denied' element={<Denied/>}/>
+      <Route element={<RequireAuth allowedRoles={["USER"]}/>}>
       <Route path='/profile' element={<Profile/>}/>
       <Route path='/edit-blog' element={<EditBlog/>}/>
       <Route path='/update-image' element={<EditBlogImage/>}/>
-      
       <Route path='/update-coverImage' element={<EditCoverImage/>}/>
       <Route path='/update-avatar' element={<EditAvatar/>}/>
       <Route path='/update-account' element={<EditDetails/>}/>
-      <Route path='/add-blog' element={<AddBlog/>}/>
       <Route path='/change-password' element={<ChangePassword/>}/>
-      <Route path='/all-blog' element={<AllBlog/>}/>
+      <Route path='/add-blog' element={<AddBlog/>}/>
+      </Route>
+
+      <Route path='/denied' element={<Denied/>}/>
+            <Route path='/all-blog' element={<AllBlog/>}/>
       <Route path='/blog-details' element={<BlogDetails/>}/>
       <Route path='/forgotPassword' element={<ForgotPassword/>}/>
       <Route path='/reset-password/:resetToken' element={<ResetPssword/>}/>
