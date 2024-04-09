@@ -15,6 +15,8 @@ import AddBlog from './pages/AddBlog/AddBlog';
 import AllBlog from './pages/AllBlog.jsx/AllBlog';
 import Home from './pages/Home/Home';
 import BlogDetails from './pages/BlogDetails/BlogDetails';
+import EditBlog from './pages/EditBlog/EditBlog/EditBlog';
+import EditBlogImage from './pages/EditBlog/EditBlog/EditBlogImage';
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
 
       <Route path='/denied' element={<Denied/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      <Route path='/edit-blog' element={<EditBlog/>}/>
+      <Route path='/update-image' element={<EditBlogImage/>}/>
       
       <Route path='/update-coverImage' element={<EditCoverImage/>}/>
       <Route path='/update-avatar' element={<EditAvatar/>}/>
