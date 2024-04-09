@@ -13,6 +13,7 @@ import EditDetails from './pages/EditProfile/EditDetails/EditDetails';
 import ChangePassword from './pages/password/changePassword/ChangePassword';
 import AddBlog from './pages/AddBlog/AddBlog';
 import AllBlog from './pages/AllBlog.jsx/AllBlog';
+import Home from './pages/Home/Home';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Layout/>}/>
+      <Route path='/' element={<Home/>}/>
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/login' element={<Login/>}/>
 

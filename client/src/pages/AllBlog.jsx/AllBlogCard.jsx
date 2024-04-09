@@ -37,41 +37,27 @@ function BlogCard({blog}) {
 
    
     return (
-            
-              <div className=" w-3/4 bg-base-100 rounded-md flex flex-col lg:flex-row-reverse shadow-[0_0_10px_black]" >
-                    <img src={blog.image} alt="Shoes" className='w-96'/>
-                    <div className="card-body ">
-                    <div className="text-xl font-semibold">{blog.author.fullName}</div>
-                        <h2 className="card-title">
-                        {blog.title}
-                        </h2>
-                        <p>{content}
-                        <Link to={"/blog-details"} state={{...blog}}><button>Read more</button></Link>
-                       
-                            
-                        </p>
-                        <div className="flex justify-between items-center">
-                          <div className="badge badge-outline">{blog.category}</div> 
-                           
-                        </div>
-                        <div className='flex gap-5 justify-between items-center'>
-                            <div className='flex gap-1'>
-                           {!auth ? <Link to={"/login"}><AiOutlineLike className="cursor-pointer" size={24}/></Link> : <Link to={"/blog-details"} state={{...blog}}><AiOutlineLike className="cursor-pointer" size={24}/></Link>}
-                            {blog.likesCount}
-                            </div>
-                            <div className='flex gap-1'>
-                            {!auth ? <Link to={"/login"}><FaRegComment className="cursor-pointer" size={24}/></Link> : <Link to={"/blog-details"} state={{...blog}}><FaRegComment className="cursor-pointer" size={24}/></Link>}
-
-                            {blog.commentCount}
-                            </div>
-                            <div>
-                          { extractedDate }
-                            </div>
-                        </div>
-                       
-                      
-                    </div>
-                    </div>
+        <div className="w-full lg:w-3/4 bg-base-100 rounded-md flex flex-col lg:flex-row-reverse shadow-[0_0_10px_black]">
+        <div className="w-full lg:w-1/2 flex justify-center items-center">
+            <img src={blog.image} alt="Blog" className="w-11/12 lg:w-full h-auto rounded-md" />
+        </div>
+        <div className="card-body p-6 lg:w-1/2">
+            <div className="text-xl font-semibold">{blog.author.fullName}</div>
+            <h2 className="card-title">{blog.title}</h2>
+            <p>
+                {content}
+                <Link to={"/blog-details"} state={{ ...blog }}>
+                    <button className="btn btn-primary">Read more</button>
+                </Link>
+            </p>
+            <div className="flex justify-between items-center">
+                <div className="badge badge-outline">{blog.category}</div>
+            </div>
+            <div className="flex justify-between items-center mt-4">
+                <div>{extractedDate}</div>
+            </div>
+        </div>
+    </div>
            
         
     );
