@@ -72,7 +72,59 @@ export const getUserData = createAsyncThunk("/auth/me", async () => {
     }
 })
 
+export const forgetPassword = createAsyncThunk("/auth/forgotPassword", async (email) => {
+    try {
+        const response = axiosInstance.post("auth/forget-password", { email })
 
+        toast.promise(response, {
+            loading: 'Laoding',
+            success: (data) => {
+                return data?.data?.message;
+            },
+            error: 'Faild to verification email'
+        })
+
+        return (await response).data;
+    } catch (error) {
+        toast.error(error?.response?.data?.message)
+    }
+})
+
+export const resetPassword = createAsyncThunk("/auth/reset", async (data) => {
+    try {
+        const response = axiosInstance.patch(`auth/reset-password/${data.resetToken}`, { password: data.password })
+
+        toast.promise(response, {
+            loading: 'Resetting....',
+            success: (data) => {
+                return data?.data?.message;
+            },
+            error: 'Faild to reset your password'
+        })
+
+        return (await response).data;
+    } catch (error) {
+        toast.error(error?.response?.data?.message)
+    }
+})
+
+export const changePassword = createAsyncThunk("/auth/changePassword", async (userPassword) => {
+    try {
+        const response = axiosInstance.post("users/change-password", userPassword)
+
+        toast.promise(response, {
+            loading: 'Loading....',
+            success: (data) => {
+                return data?.data?.message;
+            },
+            error: 'Faild to change Password'
+        })
+
+        return (await response).data;
+    } catch (error) {
+        toast.error(error?.response?.data?.message)
+    }
+})
 
 const authSlice = createSlice({
     name: "auth",

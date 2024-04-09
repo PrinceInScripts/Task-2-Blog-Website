@@ -19,6 +19,9 @@ function App() {
       <Route path='/denied' element={<Denied/>}/>
       <Route path='/profile' element={<Profile/>}/>
 
+      <Route path='/forgotPassword' element={<ForgotPassword/>}/>
+      <Route path='/reset-password/:resetToken' element={<ResetPssword/>}/>
+
     </Routes>
   )
 }
