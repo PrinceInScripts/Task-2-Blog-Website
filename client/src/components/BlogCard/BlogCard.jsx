@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import { AiOutlineLike } from "react-icons/ai";
-import { FaRegComment, FaTimes } from "react-icons/fa";
-import { FaShareAlt } from "react-icons/fa";
+
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -54,15 +52,7 @@ function BlogCard({blog}) {
                             <div className="text-xl font-semibold">{blog.author.username}</div>
                         </div>
                         <div className='flex gap-5 justify-between items-center'>
-                            <div className='flex gap-1'>
-                           {!auth ? <Link to={"/login"}><AiOutlineLike className="cursor-pointer" size={24}/></Link> : <Link to={"/blog-details"} state={{...blog}}><AiOutlineLike className="cursor-pointer" size={24}/></Link>}
-                            {blog.likesCount}
-                            </div>
-                            <div className='flex gap-1'>
-                            {!auth ? <Link to={"/login"}><FaRegComment className="cursor-pointer" size={24}/></Link> : <Link to={"/blog-details"} state={{...blog}}><FaRegComment className="cursor-pointer" size={24}/></Link>}
-
-                            {blog.commentCount}
-                            </div>
+                            
                             <div>
                           { extractedDate }
                             </div>

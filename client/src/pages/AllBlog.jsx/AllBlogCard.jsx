@@ -39,15 +39,15 @@ function BlogCard({blog}) {
     return (
         <div className="w-full lg:w-3/4 bg-base-100 rounded-md flex flex-col lg:flex-row-reverse shadow-[0_0_10px_black]">
         <div className="w-full lg:w-1/2 flex justify-center items-center">
-            <img src={blog.image} alt="Blog" className="w-11/12 lg:w-full h-auto rounded-md" />
+            <img src={blog.image} alt="Blog" className="w-11/12 lg:h-[20rem] lg:w-full h-auto object-cover rounded-md" />
         </div>
-        <div className="card-body p-6 lg:w-1/2">
+        <div className="card-body gap-4 p-6 lg:w-1/2">
             <div className="text-xl font-semibold">{blog.author.fullName}</div>
             <h2 className="card-title">{blog.title}</h2>
             <p>
                 {content}
                 <Link to={"/blog-details"} state={{ ...blog }}>
-                    <button className="btn btn-primary">Read more</button>
+                    <a className="link link-primary">Read more</a>
                 </Link>
             </p>
             <div className="flex justify-between items-center">

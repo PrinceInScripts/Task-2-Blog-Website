@@ -14,6 +14,7 @@ import ChangePassword from './pages/password/changePassword/ChangePassword';
 import AddBlog from './pages/AddBlog/AddBlog';
 import AllBlog from './pages/AllBlog.jsx/AllBlog';
 import Home from './pages/Home/Home';
+import BlogDetails from './pages/BlogDetails/BlogDetails';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Route path='/add-blog' element={<AddBlog/>}/>
       <Route path='/change-password' element={<ChangePassword/>}/>
       <Route path='/all-blog' element={<AllBlog/>}/>
+      <Route path='/blog-details' element={<BlogDetails/>}/>
       <Route path='/forgotPassword' element={<ForgotPassword/>}/>
       <Route path='/reset-password/:resetToken' element={<ResetPssword/>}/>
 

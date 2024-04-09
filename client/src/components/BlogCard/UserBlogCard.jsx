@@ -63,18 +63,7 @@ function UserBlogCard({blog}) {
                             <div className="text-xl font-semibold">{blog.author.username}</div>
                         </div>
                         <div className='flex gap-5 justify-between items-center'>
-                            <div className='flex gap-1'>
-                            {!auth ? <Link to={"/login"}><AiOutlineLike className="cursor-pointer" size={24}/></Link> : <Link to={"/blog-details"} state={{...blog}}><AiOutlineLike className="cursor-pointer" size={24}/></Link>}
-                            {blog.likesCount}
-                            </div>
-                            <div className='flex gap-1'>
-                            {!auth ? <Link to={"/login"}><FaRegComment className="cursor-pointer" size={24}/></Link> : <Link to={"/blog-details"} state={{...blog}}><FaRegComment className="cursor-pointer" size={24}/></Link>}
-                            {blog.commentCount}
-                            </div>
-                            <div className='flex gap-1'>
-                            <FaShareAlt className="cursor-pointer" size={24}/>
-                             {1}
-                            </div>
+                           
                             <div>
                           { extractedDate }
                             </div>

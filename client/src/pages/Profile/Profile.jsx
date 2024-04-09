@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Layout from "../../Layout/Layout";
-// import { getUserBlogs } from "../../redux/slice/blogSlice";
-// import BlogCard from "../../components/BlogCard/BlogCard";
+import { getUserBlogs } from "../../redux/slice/blogSlice";
+import BlogCard from "../../components/BlogCard/BlogCard";
 import { MdModeEditOutline } from "react-icons/md";
 import { FaCamera, FaUpload } from "react-icons/fa";
-// import UserBlogCard from "../../components/BlogCard/UserBlogCard";
+import UserBlogCard from "../../components/BlogCard/UserBlogCard";
 import { CgProfile } from "react-icons/cg";
 
 
@@ -16,14 +16,14 @@ function Profile() {
 
  
   const user = useSelector((state) => state.auth.data);
-  // const blogs = useSelector((state) => state.blog.userBlogs);
+  const blogs = useSelector((state) => state.blog.userBlogs);
 
   async function load() {
     await dispatch(getUserBlogs());
   }
 
   useEffect(() => {
-    // load();
+    load();
     console.log(user);
   }, []);
   return (
@@ -57,7 +57,7 @@ function Profile() {
         <div className="flex flex-col justify-start mt-20 items-start lg:w-3/4 gap-10 m-auto">
           <h1 className="text-center text-4xl font-bold">POSTS</h1>
 
-          {/* {blogs.length > 0 ? (
+          {blogs.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-40 gap-y-20">
               {blogs?.map((element) => (
                 <UserBlogCard key={element._id} blog={element} />
@@ -69,7 +69,7 @@ function Profile() {
                 <button className="btn btn-info">Create Your First Blog</button>
               </Link>
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </Layout>
