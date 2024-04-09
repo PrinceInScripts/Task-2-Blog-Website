@@ -30,7 +30,7 @@ import userRoutes from "./routes/user.routes.js"
 import blogRoutes from "./routes/blog.routes.js"
 app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/users",userRoutes);
-app.use("/api/v1/blogs",blogRoutes);
+app.use("/api/v1/blog",blogRoutes);
 
 
 export {app}

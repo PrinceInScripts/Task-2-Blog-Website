@@ -11,6 +11,7 @@ import EditCoverImage from './pages/EditProfile/EditCoverImage/EditCoverImage';
 import ResetPssword from './pages/password/resetPassword/ResetPssword';
 import EditDetails from './pages/EditProfile/EditDetails/EditDetails';
 import ChangePassword from './pages/password/changePassword/ChangePassword';
+import AddBlog from './pages/AddBlog/AddBlog';
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
       <Route path='/update-coverImage' element={<EditCoverImage/>}/>
       <Route path='/update-avatar' element={<EditAvatar/>}/>
       <Route path='/update-account' element={<EditDetails/>}/>
-
+      <Route path='/add-blog' element={<AddBlog/>}/>
       <Route path='/change-password' element={<ChangePassword/>}/>
 
       <Route path='/forgotPassword' element={<ForgotPassword/>}/>
